@@ -1,20 +1,188 @@
-<html>
- <body>
-    <div class="page"></div>
-    <!-- PRINCIPAL -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dwayne Johnson - Página Principal</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .box {
+      display: flex;
+      gap: 30px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      align-items: center;
+    }
+
+    .box img {
+      width: 360px;
+      border-radius: 12px;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* BOTONES */
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .buttons button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #111;
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background-color: #c78a2a;
+      transform: translateY(-2px);
+    }
+
+    /* CONTENIDO DINÁMICO */
+    .info {
+      background-color: #f0f0f0;
+      padding: 18px;
+      border-radius: 10px;
+      min-height: 90px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .box {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .box img {
+        width: 100%;
+      }
+
+      .buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
   <div class="section">
-    <div class="flex box">
-      <img src="https://m.media-amazon.com/images/M/MV5BOTY4Y2E0NzYtYmNjOS00ZTFhLWJmYzUtN2JmNzMyMzdhZTM0XkEyXkFqcGdeQXJoYW5uYWg@._V1_QL75_UX500_CR0,0,500,281_.jpg">
+    <div class="box">
+      <img src="https://m.media-amazon.com/images/M/MV5BOTY4Y2E0NzYtYmNjOS00ZTFhLWJmYzUtN2JmNzMyMzdhZTM0XkEyXkFqcGdeQXJoYW5uYWg@._V1_QL75_UX500_CR0,0,500,281_.jpg" alt="Dwayne Johnson">
+
       <div>
         <h2>Principal</h2>
         <p>
-          Actor, luchador y empresario.  
-          Dwayne Johnson es una de las figuras más influyentes del entretenimiento mundial.
-          Conocido por su carisma, disciplina y esfuerzo, ha destacado en la lucha libre,
-          el cine y los negocios.
+          Actor, luchador y empresario.
+Dwayne Johnson, mundialmente conocido como The Rock, es una de las figuras más influyentes y reconocidas del entretenimiento contemporáneo. Su trayectoria es un claro ejemplo de perseverancia, disciplina y capacidad de reinvención, cualidades que le han permitido destacar con éxito en múltiples industrias a lo largo de los años. Desde sus inicios en la lucha libre profesional hasta su consolidación como estrella de Hollywood y empresario visionario, Johnson ha construido una marca personal sólida y respetada a nivel global.
+
+Su carrera comenzó en la WWE, donde rápidamente se convirtió en una de las superestrellas más icónicas de la historia de la lucha libre. Gracias a su carisma, habilidades en el micrófono y presencia escénica, logró conectar con millones de fanáticos alrededor del mundo, obteniendo múltiples campeonatos y dejando una huella imborrable en este deporte-espectáculo. Esta etapa no solo definió su carácter competitivo, sino que también fortaleció su ética de trabajo y mentalidad ganadora.
+
+Posteriormente, Dwayne Johnson dio el salto al cine, enfrentándose a nuevos retos en una industria altamente competitiva. Con esfuerzo constante y determinación, logró consolidarse como uno de los actores mejor pagados y más taquilleros del mundo. Ha participado en exitosas franquicias cinematográficas de acción, aventura y comedia, demostrando una notable versatilidad actoral y una capacidad única para atraer audiencias de todas las edades.
+
+Además de su éxito en el entretenimiento, Johnson ha destacado como empresario y líder. Es fundador y socio de diversas marcas y proyectos, incluyendo productoras cinematográficas y negocios de alcance internacional. Su visión estratégica, combinada con valores como la disciplina, el trabajo en equipo y la autenticidad, lo han posicionado como una referencia en el mundo empresarial.
+
+Más allá de sus logros profesionales, Dwayne Johnson es admirado por su cercanía con el público, su enfoque positivo y su compromiso con el bienestar personal y la motivación. Su historia inspira a millones de personas a perseguir sus metas con determinación, demostrando que el éxito es el resultado del esfuerzo constante, la resiliencia y la pasión por lo que se hace.
         </p>
+
+        <!-- BOTONES -->
+        <div class="buttons">
+          <button onclick="mostrarInfo('peliculas')">Películas</button>
+          <button onclick="mostrarInfo('carrera')">Carrera Profesional</button>
+          <button onclick="mostrarInfo('contacto')">Contacto</button>
+        </div>
+
+        <!-- CONTENIDO CAMBIANTE -->
+        <div class="info" id="info">
+          Selecciona una opción para ver más información.
+        </div>
       </div>
     </div>
   </div>
- </body>
+
+  <script>
+    function mostrarInfo(seccion) {
+      const info = document.getElementById("info");
+
+      switch (seccion) {
+        case "peliculas":
+          info.innerHTML = `
+            <strong>Películas destacadas:</strong>
+            <ul>
+              <li>Fast & Furious</li>
+              <li>Jumanji</li>
+              <li>Black Adam</li>
+              <li>San Andreas</li>
+              <li>Rampage</li>
+            </ul>
+          `;
+          break;
+
+        case "carrera":
+          info.innerHTML = `
+            <strong>Carrera Profesional:</strong>
+            <p>
+              Carrera Profesional
+Dwayne Johnson, conocido mundialmente como The Rock, ha construido una carrera profesional multifacética que abarca la lucha libre, la actuación y el emprendimiento, consolidándose como una de las figuras más influyentes del entretenimiento contemporáneo. Su trayectoria es un ejemplo de disciplina, perseverancia y visión estratégica, atributos que le han permitido destacarse y mantenerse relevante en industrias altamente competitivas durante más de dos décadas.
+
+Su carrera comenzó en la lucha libre profesional dentro de la WWE, donde rápidamente se convirtió en una superestrella icónica. Con un carisma inigualable, habilidades excepcionales en el micrófono y una presencia escénica impresionante, logró conectar con millones de fanáticos en todo el mundo. Durante este período, Johnson ganó múltiples campeonatos y se convirtió en un referente dentro del deporte-espectáculo, demostrando liderazgo, resiliencia y compromiso con la excelencia. Su etapa como luchador no solo consolidó su fama, sino que también le enseñó la importancia de la disciplina, la mentalidad de competencia y la dedicación diaria para alcanzar metas ambiciosas.
+
+A medida que su popularidad crecía, Johnson decidió expandir su carrera hacia el mundo del cine, enfrentándose a un desafío completamente nuevo. Gracias a su determinación y ética de trabajo, logró adaptarse rápidamente a la industria cinematográfica, transformándose en uno de los actores más reconocidos y taquilleros a nivel global. Su filmografía incluye éxitos de acción, comedia y aventuras familiares, tales como Fast & Furious, Jumanji y Black Adam, en los que ha demostrado una versatilidad notable y una capacidad única para conectar con audiencias de todas las edades. La transición de la lucha libre al cine no solo consolidó su carrera profesional, sino que también amplió su influencia y su alcance internacional.
+
+Además de su éxito en entretenimiento, Dwayne Johnson ha sobresalido como empresario y líder estratégico. Fundador y socio de varias compañías, incluyendo Seven Bucks Productions y la marca de tequila Teremana, ha logrado combinar su talento creativo con un enfoque empresarial innovador, logrando proyectos que impactan tanto en la industria como en la cultura popular. Su carrera profesional refleja una combinación perfecta de disciplina, creatividad y visión de futuro.
+
+Más allá de los logros visibles, Johnson se distingue por su capacidad de inspirar a otros. Su trayectoria demuestra que la constancia, la resiliencia y la pasión son clave para construir un legado duradero, convirtiéndolo en un referente no solo para quienes buscan triunfar en el entretenimiento, sino también para todos aquellos que aspiran a alcanzar el éxito en cualquier ámbito profesional.
+            </p>
+          `;
+          break;
+
+        case "contacto":
+          info.innerHTML = `
+            <strong>Contacto profesional:</strong>
+            <p>Email: contacto@sevenbucks.com</p>
+            <p>Instagram: @therock</p>
+            <p>Agencia: Seven Bucks Productions</p>
+          `;
+          break;
+      }
+    }
+  </script>
+
+</body>
 </html>
+
+
